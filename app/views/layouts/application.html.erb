@@ -3,6 +3,8 @@
   <head>
     <title>RubyLearningWebsitePostgres</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,6 +14,12 @@
     </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/messages' %>
+    <div class="container">
+      <p>
+      <%= yield %>
+      </p>
+    </div>
   </body>
 </html>

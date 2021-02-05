@@ -1,0 +1,13 @@
+<div class="card"> 
+  <div class="card-header"> 
+    <div  class="fa fa-user"> 
+      <%= user.email %>
+    </div>
+  </div>
+  <div class="card-footer">
+    Singed up
+    <%= time_ago_in_words(user.created_at)%>
+    ago
+    <div class="row"></div>
+  </div>
+</div>

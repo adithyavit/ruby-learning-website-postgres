@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Courses</h1>
+
+<div class="card-columns">
+  <% @courses.each do |course| %>
+    <%= render 'courses/course', course: course %>
+  <% end %>
+</div>
+  </div>
+
+<br>

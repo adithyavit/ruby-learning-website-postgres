@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="">RubyLearn</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <div class="form-inline my-2 my-lg-0">
+      <%= form_tag(root_path, method: :get) do %>
+        <div class="input-group">
+          <%= text_field_tag :name, params[:name], autocomplete: 'off', placeholder: "Search", class: 'form-control-sm' %>
+          <span class="input-group-append">
+            <button class="btn btn-primary btn-sm" type="submit">
+              <span aria-hidden="true" class="fa fa-search"></span>
+            </button>
+          </span>
+        </div>
+      <% end %>
+    </div>
+      <% if current_user %>
+      <%= link_to current_user.email,new_course_path, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>        
+        <li class="nav-item dropdown">
+          <% else %>
+            hello
+          <% end %>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% if current_user %>
+            <%= link_to "Account settings", edit_user_registration_path, class:"dropdown-item" %>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+          <% else %>
+            <%= link_to "Another action", class:"dropdown-item" %>
+            <%= link_to "Something else here settings", class:"dropdown-item" %>
+          <% end %>
+          </div>
+        </li>
+    </div>
+  </div>
+</nav>
